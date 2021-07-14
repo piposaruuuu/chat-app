@@ -26,5 +26,10 @@ class RoomsController < ApplicationController
   def room_params
    params.require(:room).permit(:name, user_ids: [])
   end
+  
+  def message_params
+    params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
+  end
+    
 end
 
